@@ -1,0 +1,12 @@
+.product-card{
+  background: rgba(0, 255, 255, 0.473);
+  margin: 20px;
+  border-radius: 20px;
+  padding: 22px;
+  color: #1a1515;
+}
+img{
+  width: 218px;
+  height: 218px;
+  border-radius: 5px;
+}
