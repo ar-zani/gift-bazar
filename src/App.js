@@ -1,35 +1,21 @@
 import './App.css';
-import Header from './components/Header/Header';
-import Shop from './components/shop/Shop';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  createBrowserRouter,
+  RouterProvider,
 } from "react-router-dom";
-import Review from './components/Review/Review';
-import NotFound from './components/NotFound/NotFound';
+// import Shop from './components/shop/Shop';
+// import Review from './components/Review/Review';
+// import NotFound from './components/NotFound/NotFound';
+// import Main from './layouts/Main';
+// import Login from './components/Login/Login';
+// import Register from './components/Register/Register';
+// import PrivateRoute from './routes/PrivateRoute';
+import { routes } from './routes/Routes';
 
 function App() {
   return (
-    <div className="App">
-      <Header></Header>
-      <Router>
-      <Switch>
-        <Route path="/shop">
-          <Shop></Shop>
-        </Route>
-        <Route path="/review">
-          <Review></Review>
-        </Route>
-        <Route exact path="/">
-          <Shop></Shop>
-        </Route>
-        <Route path="*">
-          <NotFound></NotFound>
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <RouterProvider router={routes} />
     </div>
   );
 }

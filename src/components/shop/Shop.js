@@ -3,38 +3,30 @@ import fakeData from "../../fakeData";
 import { addToDatabaseCart, getDatabaseCart } from "../../utilities/databaseManager";
 import Cart from "../Cart/Cart";
 import Product from "../product/Product";
-import "./Shop.css";
+import styles from "./Shop.module.css"
 
 const Shop = () => {
-  const first10 = fakeData.slice(0, 10);
+  // const first10 = fakeData.slice(0, 10);
+  const first10 = fakeData;
   const [products, setProducts] = useState(first10);
   const [cart, setCart] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     const savedCart = getDatabaseCart();
     const productKeys = Object.keys(savedCart);
     const products = productKeys.map(key => {
-      const product = fakeData.find(pd=> pd.key===key);
+      const product = fakeData.find(pd => pd.key === key);
       product.quantity = savedCart[key];
       return product;
     })
     setCart(products);
-  },[]);
-
-  const [pdName, setPdName] = useState('');
-  const [pdPrice, setPdPrice] = useState();
-  const [pdImg, setPdImg] = useState('');
-
-  const submitPd = () => {
-     
-
-  }
+  }, []);
 
   const handleAddProduct = (pd) => {
-    const sameProduct = cart.find((prd) => prd.key === pd.key);
+    const sameProduct = cart.find((cartPd) => cartPd.key === pd.key);
     if (sameProduct) {
       sameProduct.quantity++;
-      const others = cart.filter((prd) => prd.key !== pd.key);
+      const others = cart.filter((cartPd) => cartPd.key !== pd.key);
       const newCart = [...others, pd];
       setCart(newCart);
     }
@@ -47,26 +39,9 @@ const Shop = () => {
   };
 
   return (
-    <div className="shop">
-      <div className="new-product">
-      <form>
-          <legend> <h3>Add New Product</h3></legend>
-          <label htmlFor="name">Name </label>
-          <input name="name" type="text" onChange={(e)=>{
-            setPdName(e.target.value)
-          }}/>
-          <label htmlFor="price">Price </label>
-          <input name="price" type="number" onChange={(e)=>{
-            setPdPrice(e.target.value)
-          }}/>
-          <label htmlFor="img">Image Url </label>
-          <input name="img" type="text" onChange={(e)=>{
-            setPdImg(e.target.value)
-          }}/>
-          <button style={{width:"80px", margin:"20px auto"}} onClick={submitPd}>Insert</button>
-        </form>
-      </div>
-      <div className="product-container">
+    <div className={styles.shop}>
+      <div className={styles.productContainer}>
+        <div className={styles.products}>
         {products.map((pd) => (
           <Product
             showAddToCart={true}
@@ -75,8 +50,9 @@ const Shop = () => {
             handleAddProduct={handleAddProduct}
           ></Product>
         ))}
+        </div>
       </div>
-      <div className="cart-container">
+      <div className={styles.cartContainer}>
         <Cart cart={cart}></Cart>
       </div>
     </div>

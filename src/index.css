@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,8 +13,9 @@ body {
   height: 100%;
   background:linear-gradient(rgba(230, 224, 227, 0.5), rgba(61, 59, 60, 0.5)), url('../src/images/back.jpg');
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 code {

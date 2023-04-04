@@ -1,0 +1,23 @@
+.shop {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+.productContainer {
+  width: 70%;
+}
+.products{
+  width: 80%;
+  margin: auto;
+  /* position: relative; */
+}
+.cartContainer {
+  width: 30%;
+  padding: 15px;
+  border-left: 1px solid gray;
+  background: rgba(0, 0, 0, 0.596);
+  height: 100%;
+  position: fixed;
+  right: 0;
+  color: aliceblue;
+}

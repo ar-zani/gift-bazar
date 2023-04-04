@@ -1,11 +1,16 @@
-.product-card{
+.productCard{
   background: rgba(0, 255, 255, 0.473);
   margin: 20px;
-  border-radius: 20px;
-  padding: 22px;
+  border-radius: 10px;
+  
   color: #1a1515;
+  display: flex;
 }
-img{
+.productDetails{
+  padding: 22px;
+  text-align: start;
+}
+.productImg{
   width: 218px;
   height: 218px;
   border-radius: 5px;
